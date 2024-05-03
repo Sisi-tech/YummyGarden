@@ -1,5 +1,8 @@
 ## Project Name: SCoffee
 ## Django
 
-What I did and practiced?
-[x] Add templates 
+## Learned and Practiced 
+
+ My**list** :
+
+- [x] **Add templates**
