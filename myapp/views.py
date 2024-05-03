@@ -8,16 +8,18 @@ from django.contrib.auth.decorators import permission_required
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Welcome to SCoffee")
+    home_content = {"home": "Welcome to SCoffee!! Enjoy your time 😉"}
+    return render(request, "home.html", home_content)
 
 def about(request):
-    return HttpResponse("About us")
+    about_content = {"about": "Welcome to SCoffee, your go-to destination for delightful coffee and indulgent desserts! Step into our cozy café and treat yourself to a world of flavor with our expertly crafted coffee creations and mouthwatering sweets. From rich espresso drinks to decadent cakes and pastries, every visit to SCoffee promises a moment of pure indulgence. Join us for a cozy atmosphere, friendly service, and a truly satisfying experience. Discover the perfect blend of coffee and sweetness at SCoffee today!"}
+    return render(request, "about.html", about_content)
 
 def menu(request):
-    return HttpResponse("Menu for SCoffee")
+    return render(request, "menu.html")
 
 def book(request):
-    return HttpResponse("Make a booking")
+    return render(request, "book.html")
 
 def display_date(request):
     date = datetime.today().year 
