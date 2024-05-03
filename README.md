@@ -9,6 +9,7 @@
 - [x] **Add 'templates' to 'DIRS' on the settings.py file**
       
 ## Example:
+
 ```Python
 TEMPLATES = [
     {
