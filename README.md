@@ -3,6 +3,9 @@
 
 ## Learned and Practiced 
 
- My**list** :
+ **Templates** :
+
+ **Set up**
+ 
 
 - [x] **Add templates**
