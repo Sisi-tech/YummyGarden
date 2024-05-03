@@ -32,5 +32,5 @@ TEMPLATES = [
 - [x] **Write function and render the request and HTML file**
 - [x] **Can add style to the HTML file**
 
-**Connect to Database - MySQL**
+## Connect to Database - MySQL
 **Set up**
