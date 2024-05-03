@@ -53,5 +53,18 @@ cursor.execute("USE MenuSales")
 
 connection.close()
 ```
+- [x] **Add the following to the settings.py file**
+      ```Python
+      DATABASES = {
+		'default': {
+				'ENGINE': 'django.db.backends.mysql',
+				'NAME': 'databasename',
+				'HOST': '127.0.0.1',
+				'PORT': '3306',
+				'USER': 'admindjango',
+				'PASSWORD': 'password',
+		}
+}
+```
 - [x] **Run python manage.py makemigrations**
 - [x] **Run python manage.py migrate**
