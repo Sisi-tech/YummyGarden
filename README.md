@@ -10,6 +10,8 @@
 - [x] **Add "templates" to 'DIRS' on the settings.py file**
 
 ## Example:
+
+```Python
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -25,5 +27,5 @@ TEMPLATES = [
         },
     },
 ]
-
+```
 - [x] **Add templates**
