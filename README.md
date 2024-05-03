@@ -34,14 +34,14 @@ TEMPLATES = [
 
 ## Connect to Database - MySQL
 **Set up**
-- [x] Install mysqlclient: pip install pymysql mysqlclient
-- [x] Add the following code under app section __init__.py
+- [x] **Install mysqlclient: pip install pymysql mysqlclient**
+- [x] **Add the following code under app section __init__.py**
 ```Python
 import pymysql
 
 pymysql.install_as_MySQLdb()
 ```
-- [x] Create mysql.py under app section and add the following format to it
+- [x] **Create mysql.py under app section and add the following format to it**
 ```Python
 import mysql.connector as connector
 
@@ -53,5 +53,5 @@ cursor.execute("USE MenuSales")
 
 connection.close()
 ```
-- [x] Run python manage.py makemigrations
-- [x] Run python manage.py migrate
+- [x] **Run python manage.py makemigrations**
+- [x] **Run python manage.py migrate**
