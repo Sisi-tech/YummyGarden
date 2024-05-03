@@ -4,7 +4,6 @@
 ## Learned and Practiced 
 
  **Templates** :
-
  **Set up**
 
 - [x] **Add 'templates' to 'DIRS' on the settings.py file**
@@ -32,3 +31,6 @@ TEMPLATES = [
 - [x] **Create different html file. Such as about.html, home.html, menu.html**
 - [x] **Write function and render the request and HTML file**
 - [x] **Can add style to the HTML file**
+
+**Connect to Database - MySQL**
+**Set up**
