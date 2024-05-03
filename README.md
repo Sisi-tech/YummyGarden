@@ -28,4 +28,7 @@ TEMPLATES = [
     },
 ]
 ```
-- [x] **Add templates**
+- [x] **Create templates folder under the app folder**
+- [x] **Create different html file. Such as about.html, home.html, menu.html**
+- [x] **Write function and render the request and HTML file**
+- [x] **Can add style to the HTML file**
