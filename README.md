@@ -7,7 +7,7 @@
 
  **Set up**
 
-- [x] **Add "templates" to 'DIRS' on the settings.py file**
+- [x] **Add 'templates' to 'DIRS' on the settings.py file**
 
 ## Example:
 
