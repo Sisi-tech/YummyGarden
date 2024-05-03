@@ -54,7 +54,7 @@ cursor.execute("USE MenuSales")
 connection.close()
 ```
 - [x] **Add the following to the settings.py file**
-      ```Python
+```Python
       DATABASES = {
 		'default': {
 				'ENGINE': 'django.db.backends.mysql',
