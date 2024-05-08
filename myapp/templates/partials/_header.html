@@ -1,10 +1,18 @@
 <footer style="background-color: #EE9972; width: 100%;">
     <nav>
         <ul style="display: flex; flex-direction: row; justify-content: space-evenly; font-size: 26px; font-weight: bold; padding: 14px 0; margin: 0;">
-            <li style="display: inline-block; width: 120px;">Home</li>
-            <li style="display: inline-block; width: 120px;">About</li>
-            <li style="display: inline-block; width: 120px;">Menu</li>
-            <li style="display: inline-block; width: 120px;">Book</li>
+            <li style="display: inline-block; width: 120px;">
+                <a href="{% url 'home' %}" style="text-decoration: none;">Home</a>
+            </li>
+            <li style="display: inline-block; width: 120px;">
+                <a href="{% url 'about' %}" style="text-decoration: none;">About</a>
+            </li>
+            <li style="display: inline-block; width: 120px;">
+                <a href="{% url 'menu' %}" style="text-decoration: none;">Menu</a>
+            </li>
+            <li style="display: inline-block; width: 120px;">
+                <a href="{% url 'book' %}" style="text-decoration: none;">Reservation</a>
+            </li>
         </ul>
     </nav>
 </footer>

@@ -35,3 +35,10 @@ class Product(models.Model):
     class Meta:
         permissions = [('can_change_category', 'Can change category')]
         
+class Menu(models.Model):
+    menuItem = models.CharField(max_length=200)
+    description = models.TextField(max_length=1000, default="")
+    price = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.menuItem}, {self.price}"
