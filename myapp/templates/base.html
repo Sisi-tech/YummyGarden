@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCoffee</title>
 </head>
-<body style="background-color: #fbdabb; display: flex; flex-direction: column; align-items: center; width: 100%; height: 100vh; margin: 0; padding: 0">
-    {% include 'partials/_header.html' %}
-    <main>
+<body style="background-color: #f7f7f7; display: flex; flex-direction: column; align-items: center; width: 100%; margin: 0; padding: 0">
+    <header style="width: 100%; display: flex; flex-direction: column; text-align: center; align-items: center;">
+        {% include 'partials/_header.html' %}
+    </header>
+    <main style="width: 90%; display: flex; flex-direction: column; align-items: center; font-size: larger;">
         {% block content %}
         {% endblock %}
     </main>
