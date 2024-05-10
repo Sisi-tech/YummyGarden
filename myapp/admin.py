@@ -3,12 +3,13 @@ from .models import Drinks
 from .models import DrinksCategory
 from .models import Booking 
 from django.contrib.auth.admin import UserAdmin
-from .models import Person 
+from .models import Menu 
 
 # Register your models here.
 admin.site.register(Drinks)
 admin.site.register(DrinksCategory)
 admin.site.register(Booking)
+admin.site.register(Menu)
 
 class NewAdmin(UserAdmin):
     def get_form(self, request, obj=None, **Kwargs):
@@ -20,7 +21,4 @@ class NewAdmin(UserAdmin):
 
         return form
     
-@admin.register(Person)
-class PersonAdmin(admin.ModelAdmin):
-    list_display = ("first_name", "last_name")
-    search_fields = ("first_name__startswith", )
+

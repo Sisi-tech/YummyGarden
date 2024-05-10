@@ -19,26 +19,12 @@ class Booking(models.Model):
     comments = models.CharField(max_length=1000)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-
-class Person(models.Model):
-    first_name = models.TextField()
-    last_name = models.TextField()
-
-    def __str__(self):
-        return f"{self.first_name}, {self.last_name}"
-
-class Product(models.Model):
-    ProductID: models.IntegerField()
-    name: models.TextField()
-    category: models.TextField()
-    class Meta:
-        permissions = [('can_change_category', 'Can change category')]
+        return self.first_name + " " + self.last_name
         
 class Menu(models.Model):
-    menuItem = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, default="")
-    price = models.IntegerField()
+    price = models.IntegerField(null=False)
 
     def __str__(self):
-        return f"{self.menuItem}, {self.price}"
+        return self.name 

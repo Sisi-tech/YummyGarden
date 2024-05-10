@@ -1,0 +1,35 @@
+.menu_item_section {
+    width: 100%;
+    box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
+    margin-top: 20px;
+    padding: 16px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 16px;
+    gap: 20px;
+}
+
+.menu_img {
+    width: 600px;
+    border-radius: 20px;
+}
+.menu_page {
+    width: 100%;
+    text-align: center;
+}
+.menu_items {
+    display: flex;
+    gap: 10px;
+}
+.menu_page .column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

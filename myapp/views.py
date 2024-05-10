@@ -5,6 +5,7 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import permission_required
+from .models import Menu 
 
 # Create your views here.
 def home(request):
@@ -16,33 +17,18 @@ def about(request):
     return render(request, "about.html", about_content)
 
 def menu(request):
-    return render(request, "menu.html")
+    menu_data = Menu.objects.all()
+    main_data = {"menu": menu_data}
+    return render(request, "menu.html", {"menu": main_data})
 
 def book(request):
     return render(request, "book.html")
 
-def display_date(request):
-    date = datetime.today().year 
-    return HttpResponse(date)
-
-def myview(request):
-    if request.user.is_anonymous():
-        raise PermissionDenied()
-    
-@login_required
-def login_required(request):
-    return HttpResponse("Hello World")
-
-def test_permission(user):
-    if user.is_authenticated() and user.has_perm("myapp.change_category"):
-        return True
+def display_menu_item(request, pk=None):
+    if pk:
+        menu_item = Menu.objects.get(pk=pk)
     else:
-        return False 
-    
-@user_passes_test(test_permission)
-def change_ctg(request):
-    pass 
+        menu_item = ""
+    return render(request, 'menu_item.html', {"menu_item": menu_item})
 
-@permission_required("myapp.change_category")
-def store_creator(request):
-    pass 
+
