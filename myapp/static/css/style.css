@@ -23,8 +23,8 @@ h1 {
 }
 .menu_page {
     width: 100%;
-    text-align: center;
 }
+
 .menu_items {
     display: flex;
     gap: 10px;

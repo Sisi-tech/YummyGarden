@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'SCoffee.urls'
+ROOT_URLCONF = 'yummyGarden.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SCoffee.wsgi.application'
+WSGI_APPLICATION = 'yummyGarden.wsgi.application'
 
 
 # Database
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'SCoffee.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'SCoffee',
+        'NAME': 'YummyGarden',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'root',
