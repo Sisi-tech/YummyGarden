@@ -1,8 +1,7 @@
 .menu_item_section {
     width: 100%;
     box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
-    margin-top: 20px;
-    padding: 16px;
+    padding: 20px;
 }
 
 h1 {
@@ -13,16 +12,18 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 16px;
+    padding-top: 20px;
     gap: 20px;
 }
 
 .menu_img {
-    width: 600px;
+    width: 100%;
     border-radius: 20px;
 }
+
 .menu_page {
     width: 100%;
+    text-align: center;
 }
 
 .menu_items {
