@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}  
-<h1>About Us</h1>
+<h1 class="about-us">About Us</h1>
 <section>
     <article style="font-size: 22px;">
         <p>
@@ -18,4 +18,5 @@
     </article>
 </section>
 <p>{{about}}</p>
+{% include 'partials/_hours.html' %}
 {% endblock %}

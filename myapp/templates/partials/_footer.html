@@ -1,8 +1,13 @@
 {% load static %}
 <footer style="width: 100%; margin-top: 20px; background-color: rgb(229, 238, 229); padding: 20px;">
-    <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; justify-content: space-between;" class="footer">
         <img src="{% static 'img/Garden.png' %}" alt="Logo Img" style="width: 8%; border-radius: 50%;" />
-        <div style="display: flex; flex-direction: column; text-align: end;">
+        <div class="contact">
+            <p><span class="address">Address: </span>1 E 123th st, New York, NY 10001</p>
+            <p><span class="email">Email:</span> yummyGarden@gmail.com</p>
+            <p><span class="phone">Phone:</span> 888-234-2234</p>
+        </div>
+        <div style="display: flex; flex-direction: column; text-align: end;" class="copyright">
             <div>__________________________________________</div>
             <p>Copyright Yummy Garden</p>
         </div>
