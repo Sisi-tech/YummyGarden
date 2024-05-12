@@ -1,5 +1,42 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="home-banner"></div>
+<div class="home-banner">
+    <video autoplay loop muted playsinline>
+        <source src="{% static 'img/video2.mp4' %}" type="video/mp4">
+    </video>
+    <div class="content">
+        <h1>SPECIAL OFFER</h1>
+        <h2>30% Off This Weekend</h2>
+        <a href="{% url 'book' %}" style="text-decoration: none; color: white;" >
+            <button class="book_btn">Book now</button>
+        </a>
+    </div>
+</div>
+<section>
+    <article class="home_article">
+        <div class="home_menu">
+            <a href="{% url 'menu' %}">
+                <h2>Our New Menu</h2>
+            </a>
+            <img src="{% static 'img/Spicy Bean Paste Avocado on Sablefish.jpg' %}" alt="home_menu_pic" />
+            <p>description...</p>
+        </div>
+
+        <div class="home_menu">
+            <a href="{% url 'book' %}">
+                <h2>Book a table</h2>
+            </a>
+            <img src="{% static 'img/table.jpg' %}" alt="home_menu_table" />
+            <p>description...</p>
+        </div>
+
+        <div class="home_menu">
+            <h2>Opening Hours</h2>
+            <img src="{% static 'img/background13.jpg' %}" alt="home_menu_hour" />
+            <p>description...</p>
+        </div>
+
+    </article>
+</section>
 {% endblock %}
