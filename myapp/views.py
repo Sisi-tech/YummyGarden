@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from datetime import datetime
-from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import permission_required
 from .models import Menu 
+from .forms import BookingForm
+
 
 # Create your views here.
 def home(request):
@@ -21,7 +21,13 @@ def menu(request):
     return render(request, "menu.html", {"menu": main_data})
 
 def book(request):
-    return render(request, "book.html")
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = BookingForm()
+    return render(request, 'book.html', {'form': form})
 
 def display_menu_item(request, pk=None):
     if pk:

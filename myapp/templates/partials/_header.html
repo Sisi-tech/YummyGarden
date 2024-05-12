@@ -7,18 +7,18 @@
 
 <footer style="background-color: #3e583a; width: 100%;" class="nav-bar">
     <nav>
-        <ul style="display: flex; flex-direction: row; justify-content: space-evenly; font-size: 26px; font-weight: bold; padding: 12px 0; margin: 0;">
+        <ul class="nav-bar-list">
             <li style="display: inline-block; width: 120px;">
-                <a href="{% url 'home' %}" style="text-decoration: none; color: white;">Home</a>
+                <a href="{% url 'home' %}" class="nav-bar-menu">Home</a>
             </li>
             <li style="display: inline-block; width: 120px;">
-                <a href="{% url 'about' %}" style="text-decoration: none; color: white;">About</a>
+                <a href="{% url 'about' %}" class="nav-bar-menu">About</a>
             </li>
             <li style="display: inline-block; width: 120px;">
-                <a href="{% url 'menu' %}" style="text-decoration: none; color: white;">Menu</a>
+                <a href="{% url 'menu' %}" class="nav-bar-menu">Menu</a>
             </li>
             <li style="display: inline-block; width: 120px;">
-                <a href="{% url 'book' %}" style="text-decoration: none; color: white;">Reservation</a>
+                <a href="{% url 'book' %}" class="nav-bar-menu">Reservation</a>
             </li>
         </ul>
     </nav>
