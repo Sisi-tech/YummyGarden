@@ -1,6 +1,8 @@
 ## Project Name: Yummy Garden
 ## Django
 
+## env
+**source venv/bin/activate**
 
 ## Templates
 **Set up**
