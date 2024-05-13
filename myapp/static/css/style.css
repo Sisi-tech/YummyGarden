@@ -159,6 +159,9 @@ h1 {
     transform: scale(1.1);
 }
 /* book a table page style */
+.booking-container {
+    width: 100%;
+}
 .book-form {
     width: 100%;
     box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
@@ -191,7 +194,10 @@ h1 {
     width: 200px;
     font-size: 22px;
 }
-
+.success-message {
+    font-size: 26px;
+    color: #3e583a;
+}
 
 @media screen and (max-width: 767px) {
     .home_article {

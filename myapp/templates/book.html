@@ -2,23 +2,61 @@
 {% block content %} 
 
 <h1>Book a table</h1>
-<form method="post" class="book-form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="book-form-btn">Submit</button>
-</form>
+<div id="booking-container" class="booking-container">
+    <form method="post" class="book-form" id="book-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="book-form-btn">Submit</button>
+    </form>
+</div>
+<div id="success-message" style="display: none;" class="success-message">
+    Booking has been submitted successfully!
+    <div 
+        class="tenor-gif-embed" 
+        data-postid="26233508" 
+        data-share-method="host" 
+        data-aspect-ratio="1.06667" 
+        data-width="100%"
+    >
+        <a href="https://tenor.com/view/line-sticker-thank-you-sticker-rabbit-sticker-bunny-sticker-bowing-down-gif-26233508">
+            Thank You
+        </a>
+    </div> 
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var inputFields = document.querySelectorAll('input[type="text"]');
+        var form = document.getElementById('book-form');
+        var successMessage = document.getElementById('success-message');
+        var container = document.getElementById('booking-container');
+
         inputFields.forEach(function(input) {
             input.addEventListener('input', function() {
                 var value = this.value;
                 if (value.length > 0) {
                     this.value = value.charAt(0).toUpperCase() + value.slice(1);
                 }
-            })
-        })
-    })
+            });
+        });
+
+        // Add event listener to the form submit button
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Hide the form
+            container.style.display = 'none';
+            //show the success message
+            successMessage.style.display = 'block';
+            //Rest the form after 5 seconds
+            setTimeout(function() {
+                form.reset();
+                // show the form again
+                container.style.display = "block";
+                // hide the success message
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+    });
 </script>
 {% endblock %}
