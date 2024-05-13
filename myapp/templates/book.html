@@ -10,7 +10,7 @@
     </form>
 </div>
 <div id="success-message" style="display: none;" class="success-message">
-    Booking has been submitted successfully!
+    Booking has been submitted successfully! Thank you.
     <div 
         class="tenor-gif-embed" 
         data-postid="26233508" 
@@ -50,6 +50,7 @@
             successMessage.style.display = 'block';
             //Rest the form after 5 seconds
             setTimeout(function() {
+                form.submit();
                 form.reset();
                 // show the form again
                 container.style.display = "block";

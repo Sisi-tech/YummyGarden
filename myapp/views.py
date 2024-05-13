@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
@@ -32,6 +32,7 @@ def book(request):
             form.instance.first_name = first_name.capitalize()
             form.instance.last_name = last_name.capitalize()
             form.save()
+            messages.success(request, "Booking submitted successfully.")
 
     else:
         form = BookingForm()
