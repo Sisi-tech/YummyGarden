@@ -1,7 +1,6 @@
-## Project Name: SCoffee
+## Project Name: Yummy Garden
 ## Django
 
-## Learned and Practiced 
 
 ## Templates
 **Set up**
