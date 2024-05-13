@@ -46,17 +46,26 @@
             event.preventDefault();
             // Hide the form
             container.style.display = 'none';
-            //show the success message
-            successMessage.style.display = 'block';
-            //Rest the form after 5 seconds
-            setTimeout(function() {
-                form.submit();
-                form.reset();
-                // show the form again
-                container.style.display = "block";
-                // hide the success message
-                successMessage.style.display = 'none';
-            }, 5000);
+            // Save form data
+            var formData = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            }).then(function(response) {
+                //show the success message
+                successMessage.style.display = 'block';
+                //Rest the form after 5 seconds
+                setTimeout(function() {
+                    // reset the form
+                    form.reset();
+                    // show the form again
+                    container.style.display = "block";
+                    // hide the success message
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }).catch(function(error) {
+                console.error('Error:', error);
+            });
         });
     });
 </script>
