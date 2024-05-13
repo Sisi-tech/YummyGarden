@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import permission_required
 from .models import Menu 
 from .forms import BookingForm
+from django.contrib import messages 
 
 
 # Create your views here.
@@ -24,10 +25,18 @@ def book(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
+            # get form data
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            # capitalize first letter of first and last name
+            form.instance.first_name = first_name.capitalize()
+            form.instance.last_name = last_name.capitalize()
             form.save()
+
     else:
         form = BookingForm()
     return render(request, 'book.html', {'form': form})
+
 
 def display_menu_item(request, pk=None):
     if pk:

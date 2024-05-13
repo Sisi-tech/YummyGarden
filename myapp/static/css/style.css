@@ -192,6 +192,7 @@ h1 {
     font-size: 22px;
 }
 
+
 @media screen and (max-width: 767px) {
     .home_article {
         flex-direction: column;

@@ -1,9 +1,24 @@
 {% extends 'base.html' %} 
 {% block content %} 
+
 <h1>Book a table</h1>
 <form method="post" class="book-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="book-form-btn">Submit</button>
 </form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var inputFields = document.querySelectorAll('input[type="text"]');
+        inputFields.forEach(function(input) {
+            input.addEventListener('input', function() {
+                var value = this.value;
+                if (value.length > 0) {
+                    this.value = value.charAt(0).toUpperCase() + value.slice(1);
+                }
+            })
+        })
+    })
+</script>
 {% endblock %}
