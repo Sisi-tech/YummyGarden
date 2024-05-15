@@ -4,7 +4,7 @@
 <section class="menu_page">
     <h1>Menu</h1>
     <div class="column">
-        {% for item in menu.menu %} 
+        {% for item in menu %} 
         <p class="menu_items">
             <a href="{% url 'menu_item' pk=item.pk %}">
                 {{ item.name }}
@@ -12,6 +12,20 @@
             <span>--</span>
             <span class="menu_price">
             ${{ item.price }}
+            </span>
+        </p>
+        {% endfor %}
+    </div>
+    <div class="drinks_column">
+        <h2>Drinks</h2>
+        {% for drink in drinks %}
+        <p class="drink_item">
+            <a href="{% url 'drink_item' pk=drink.pk %}">
+                {{ drink.title }}
+            </a>
+            <span>--</span>
+            <span class="drink_price">
+                ${{ drink.price }}
             </span>
         </p>
         {% endfor %}

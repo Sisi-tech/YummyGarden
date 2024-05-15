@@ -4,13 +4,15 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
 class DrinksCategory(models.Model):
     category_name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.category_name
 
 class Drinks(models.Model):
-    drink = models.CharField(max_length=200)
-    price = models.IntegerField()
+    title = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=4, decimal_places=2)
     category_id = models.ForeignKey(DrinksCategory, on_delete=models.PROTECT, default=None)
     def __str__(self):
-        return self.drink
+        return self.title 
 
 class Booking(models.Model):
     first_name = models.CharField(max_length=200)

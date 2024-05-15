@@ -10,7 +10,7 @@ urlpatterns = [
     path('book/', views.book, name="book"),
     path('menu/', views.menu, name="menu"),
     path('menu_item/<int:pk>', views.display_menu_item, name="menu_item"),
-    # path('drinks/', views.drinks),
-    path('drinks/', views.DrinksList.as_view()),
-    path('drink/<int:pk>', views.Drink.as_view()),
+    path('drink_item/<int:pk>', views.display_drink_item, name="drink_item"),
+    path('api/drinks/', views.DrinksList.as_view()),
+    path('api/drinks/<int:pk>', views.Drink.as_view()),
 ]

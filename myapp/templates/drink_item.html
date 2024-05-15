@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %} 
+
+<section class="drink_item_section">
+    <article>
+        <h1>Drink Item</h1>
+        <span>
+            <a href="{% url 'home' %}">Home</a>/
+            <a href="{% url 'menu' %}">Menu</a>/
+            {{drink_item.title}}
+        </span>
+        <div class="row">
+            <div class="column">
+                <h2>
+                    {{ drink_item.title }}
+                </h2>
+                <p>
+                    Price: ${{ drink_item.price }}
+                </p>
+            </div>
+            <!-- <div class="column">
+                <img src="{% static '/img/' %}{{ drink_item.name }}.jpg" alt="{{ drink_item.name }}" class="drink_img" />
+            </div> -->
+        </div>
+    </article>
+</section>
+
+{% endblock %}

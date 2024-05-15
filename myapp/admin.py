@@ -11,6 +11,7 @@ admin.site.register(DrinksCategory)
 admin.site.register(Booking)
 admin.site.register(Menu)
 
+
 class NewAdmin(UserAdmin):
     def get_form(self, request, obj=None, **Kwargs):
         form = super().get_form(request, obj, **Kwargs)

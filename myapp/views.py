@@ -1,12 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from .models import Menu 
+from .models import Drinks 
 from .forms import BookingForm
 from django.contrib import messages 
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
+from .serializers import DrinksSerializer
 
 
 # Create your views here.
@@ -16,11 +17,6 @@ def home(request):
 
 def about(request):
     return render(request, "about.html")
-
-def menu(request):
-    menu_data = Menu.objects.all()
-    main_data = {"menu": menu_data}
-    return render(request, "menu.html", {"menu": main_data})
 
 def book(request):
     if request.method == 'POST':
@@ -39,6 +35,12 @@ def book(request):
     return render(request, 'book.html', {'form': form})
 
 
+def menu(request):
+    menu_data = Menu.objects.all()
+    drinks_data = Drinks.objects.all()
+    context = {"menu": menu_data, "drinks": drinks_data}
+    return render(request, "menu.html", context)
+
 def display_menu_item(request, pk=None):
     if pk:
         menu_item = Menu.objects.get(pk=pk)
@@ -47,25 +49,42 @@ def display_menu_item(request, pk=None):
     return render(request, 'menu_item.html', {"menu_item": menu_item})
 
 
-@api_view(['GET', 'POST'])
-def drinks(request):
-    return Response('list of the drinks', status=status.HTTP_200_OK)
+def display_drink_item(request, pk=None):
+    drink_item = get_object_or_404(Drinks, pk=pk)
+    return render(request, 'drink_item.html', {"drink_item": drink_item})
 
 class DrinksList(APIView):
     def get(self, request):
-        return Response({"message":"list of the drinks"}, status.HTTP_200_OK)
+        drinks = Drinks.objects.all()
+        serializer = DrinksSerializer(drinks, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     def post(self, request):
-        return Response({"message":"new drink created"}, status.HTTP_201_CREATED)
+        serializer = DrinksSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     
 class Drink(APIView):
     def get(self, request, pk):
-        return Response({"message":"single drink with id " + str(pk)}, status.HTTP_200_OK)
-    def post(self, request, pk):
-        return Response({"message":"single drink created with id " + str(pk)}, status.HTTP_201_CREATED)
-    def delete(self, request, pk):
-        return Response({"message":"single drink deleted with id " + str(pk)}, status.HTTP_301_MOVED_PERMANENTLY)
+        drink = Drinks.objects.get(pk=pk)
+        serializer = DrinksSerializer(drink)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
     def put(self, request, pk):
-        return Response({"message":"single drink updated with id " + str(pk)}, status.HTTP_202_ACCEPTED)
+        drink = Drinks.objects.get(pk=pk)
+        serializer = DrinksSerializer(drink, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, pk):
+        drink = Drinks.objects.get(pk=pk)
+        drink.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    
     
     
