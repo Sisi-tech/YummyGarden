@@ -9,7 +9,7 @@ class DrinksSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Drinks 
-        fields = ['title', 'price', 'category']
+        fields = ['title', 'description', 'price', 'category']
 
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:

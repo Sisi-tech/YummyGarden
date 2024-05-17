@@ -16,8 +16,8 @@
         </p>
         {% endfor %}
     </div>
+    <h2>Drinks</h2>
     <div class="drinks_column">
-        <h2>Drinks</h2>
         {% for drink in drinks %}
         <p class="drink_item">
             <a href="{% url 'drink_item' pk=drink.pk %}">
