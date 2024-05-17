@@ -8,7 +8,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from .serializers import DrinksSerializer
-
+from django.core.paginator import Paginator, EmptyPage
 
 # Create your views here.
 def home(request):
@@ -55,7 +55,29 @@ def display_drink_item(request, pk=None):
 
 class DrinksList(APIView):
     def get(self, request):
-        drinks = Drinks.objects.all()
+        drinks = Drinks.objects.select_related('category').all()
+        category_name = request.query_params.get('category')
+        to_price = request.query_params.get('to_price')
+        search = request.query_params.get('search')
+        ordering = request.query_params.get('ordering')
+        perpage = request.query_params.get('perpage', default=2)
+        page = request.query_params.get('page', default=1)
+        if category_name:
+            drinks = drinks.filter(category__title=category_name)
+        if to_price:
+            drinks = drinks.filter(price_lte=to_price)
+        if search:
+            drinks = drinks.filter(title__icontains=search)
+        if ordering:
+            ordering_fields = ordering.split(",")
+            drinks = drinks.order_by(*ordering_fields)
+
+        paginator = Paginator(drinks, per_page=perpage)
+        try:
+            drinks = paginator.page(number=page)
+        except EmptyPage:
+            drinks = []
+            
         serializer = DrinksSerializer(drinks, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     def post(self, request):

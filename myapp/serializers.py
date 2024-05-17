@@ -1,10 +1,22 @@
 from rest_framework import serializers
 from .models import Drinks 
+from .models import Menu 
+from .models import Booking
 
 
 class DrinksSerializer(serializers.ModelSerializer):
-    category_name = serializers.ReadOnlyField(source='category_id.category_name')
+    category = serializers.ReadOnlyField(source='category.category_name')
     
     class Meta:
         model = Drinks 
-        fields = ['title', 'price', 'category_name']
+        fields = ['title', 'price', 'category']
+
+class MenuSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Menu 
+        fields = ['name', 'description', 'price']
+
+class BookingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking 
+        fields = ['first_name', 'last_name', 'guest_count', 'reservation_time', 'comments']
