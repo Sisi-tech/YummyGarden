@@ -4,13 +4,13 @@
 
 <section class="drink_item_section">
     <article>
-        <h1>Drink Item</h1>
+        <h1>Drink</h1>
         <span>
             <a href="{% url 'home' %}">Home</a>/
             <a href="{% url 'menu' %}">Menu</a>/
             {{drink_item.title}}
         </span>
-        <div class="row">
+        <div class="row" >
             <div class="column">
                 <h2>
                     {{ drink_item.title }}
@@ -19,9 +19,14 @@
                     Price: ${{ drink_item.price }}
                 </p>
             </div>
-            <!-- <div class="column">
-                <img src="{% static '/img/' %}{{ drink_item.name }}.jpg" alt="{{ drink_item.name }}" class="drink_img" />
-            </div> -->
+            <div class="column">
+                <img 
+                    src="{% static '/img/' %}{{ drink_item.title }}.jpg" 
+                    alt="{{ drink_item.title }}" 
+                    class="drink_img" 
+                    style="width: 35%; border-radius: 20px;"
+                    />
+            </div>
         </div>
     </article>
 </section>
