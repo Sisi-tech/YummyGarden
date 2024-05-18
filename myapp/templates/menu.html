@@ -3,7 +3,7 @@
 {% block content %}  
 <section class="menu_page">
     <h1>Menu</h1>
-    <div class="column">
+    <div class="menu_column">
         {% for item in menu %} 
         <p class="menu_items">
             <a href="{% url 'menu_item' pk=item.pk %}">
@@ -17,7 +17,7 @@
         {% endfor %}
     </div>
     <h2>Drinks</h2>
-    <div class="drinks_column">
+    <div class="drinks_item">
         {% for drink in drinks %}
         <p class="drink_item">
             <a href="{% url 'drink_item' pk=drink.pk %}">

@@ -1,7 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block content %} 
-
 <section class="drink_item_section">
     <article>
         <h1>Drink</h1>
@@ -24,11 +23,9 @@
                     src="{% static '/img/' %}{{ drink_item.title }}.jpg" 
                     alt="{{ drink_item.title }}" 
                     class="drink_img" 
-                    style="width: 35%; border-radius: 20px;"
                     />
             </div>
         </div>
     </article>
 </section>
-
 {% endblock %}
