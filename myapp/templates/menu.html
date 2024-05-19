@@ -31,9 +31,9 @@
         {% endfor %}
     </div>
     <h2>Dessert</h2>
-    <div class="dessert_item">
+    <div class="desserts_item">
         {% for dessert in desserts %}
-        <p class="dessert">
+        <p class="dessert_item">
             <a href="{% url 'dessert_item' pk=dessert.pk %}">
                 {{ dessert.title }}
             </a>

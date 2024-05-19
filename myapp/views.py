@@ -55,7 +55,7 @@ def display_drink_item(request, pk=None):
     drink_item = get_object_or_404(Drinks, pk=pk)
     return render(request, 'drink_item.html', {"drink_item": drink_item})
 
-def dessert(request, pk=None):
+def display_dessert_item(request, pk=None):
     dessert_item = get_object_or_404(Dessert, pk=pk)
     return render(request, 'dessert_item.html', {'dessert': dessert_item})
 
