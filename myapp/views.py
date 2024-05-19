@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from .serializers import DrinksSerializer
 from django.core.paginator import Paginator, EmptyPage
+from .models import Dessert 
 
 # Create your views here.
 def home(request):
@@ -38,7 +39,8 @@ def book(request):
 def menu(request):
     menu_data = Menu.objects.all()
     drinks_data = Drinks.objects.all()
-    context = {"menu": menu_data, "drinks": drinks_data}
+    dessert_data = Dessert.objects.all()
+    context = {"menu": menu_data, "drinks": drinks_data, "desserts": dessert_data}
     return render(request, "menu.html", context)
 
 def display_menu_item(request, pk=None):
@@ -52,6 +54,11 @@ def display_menu_item(request, pk=None):
 def display_drink_item(request, pk=None):
     drink_item = get_object_or_404(Drinks, pk=pk)
     return render(request, 'drink_item.html', {"drink_item": drink_item})
+
+def dessert(request, pk=None):
+    dessert_item = get_object_or_404(Dessert, pk=pk)
+    return render(request, 'dessert_item.html', {'dessert': dessert_item})
+
 
 class DrinksList(APIView):
     def get(self, request):

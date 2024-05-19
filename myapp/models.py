@@ -33,3 +33,11 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+class Dessert(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField(max_length=1000, default="")
+    price = models.DecimalField(max_digits=4, decimal_places=2, null=False)
+    def __str__(self):
+        return self.title
+    

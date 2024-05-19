@@ -1,27 +1,20 @@
+/* menu page style*/
 .menu_item_section {
     width: 100%;
     box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
     padding: 22px;
+    margin: 20px;
+}
+
+.drink_item_section {
+    width: 100%;
+    box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
+    margin: 20px;
 }
 
 h1 {
     font-size: 36px;
 }
-
-.menu_item_section .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 20px;
-    gap: 20px;
-}
-
-.menu_img {
-    width: 100%;
-    border-radius: 20px;
-}
-
-/* menu page style*/
 
 .menu_page {
     width: 100%;
@@ -40,9 +33,35 @@ h1 {
     justify-items: center;
 }
 
-.drinks_item {
-    display: grid;
+.drink_item_section article {
+    padding: 20px;
+    padding-left: 60px;
 }
+.menu_item_section .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    gap: 20px;
+}
+
+.menu_img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.drink_item_section .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    gap: 200px;
+}
+.drink_img {
+    width: 100%;
+    border-radius: 20px;
+}
+
 
 /* header style */
 .logo-title:hover {
@@ -234,6 +253,14 @@ h1 {
     .menu_item_section .row {
         display: flex; 
         flex-direction: column;
+    }
+    .drink_item_section .row {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .drink_item_section article {
+        padding-left: 20px;
     }
     .hours-img-schedule {
         flex-direction: column;

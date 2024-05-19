@@ -30,5 +30,19 @@
         </p>
         {% endfor %}
     </div>
+    <h2>Dessert</h2>
+    <div class="dessert_item">
+        {% for dessert in desserts %}
+        <p class="dessert">
+            <a href="{% url 'dessert_item' pk=dessert.pk %}">
+                {{ dessert.title }}
+            </a>
+            <span>--</span>
+            <span class="dessert_price">
+                ${{ dessert.price }}
+            </span>
+        </p>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

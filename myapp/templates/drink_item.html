@@ -11,19 +11,16 @@
         </span>
         <div class="row" >
             <div class="column">
-                <h2>
-                    {{ drink_item.title }}
-                </h2>
-                <p>
-                    Price: ${{ drink_item.price }}
-                </p>
+                <h2>{{ drink_item.title }}</h2>
+                <p>{{ drink_item.description }}</p>
+                <p>Price: ${{ drink_item.price }}</p>
             </div>
             <div class="column">
                 <img 
                     src="{% static '/img/' %}{{ drink_item.title }}.jpg" 
                     alt="{{ drink_item.title }}" 
                     class="drink_img" 
-                    />
+                />
             </div>
         </div>
     </article>
