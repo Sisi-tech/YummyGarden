@@ -17,7 +17,7 @@
             </div>
             <div class="column">
                 <img 
-                    src="{% static '/img/' %}{{ dessert.title }}.jpg"
+                    src="{{ dessert.url.url }}"
                     alt="{{ dessert.title }}"
                     class="dessert_img"
                 />

@@ -1,4 +1,7 @@
 /* menu page style*/
+h1 {
+    font-size: 36px;
+}
 .menu_item_section {
     width: 100%;
     box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
@@ -7,14 +10,13 @@
 }
 
 .drink_item_section,
-.dessert_item_section {
+.dessert_item_section,
+.cocktail_item_section {
     width: 100%;
     box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
     margin: 20px;
-}
-
-h1 {
-    font-size: 36px;
+    display: flex;
+    text-align: center;
 }
 
 .menu_page {
@@ -26,14 +28,16 @@ h1 {
 
 .menu_items, 
 .drink_item, 
-.dessert_item {
+.dessert_item,
+.cocktail_item {
     display: flex;
     gap: 10px;
 }
 
 .menu_column, 
 .drinks_item, 
-.desserts_item {
+.desserts_item,
+.cocktails_item {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
@@ -41,8 +45,7 @@ h1 {
 
 .drink_item_section article,
 .dessert_item_section article {
-    padding: 20px;
-    padding-left: 20px;
+    padding: 40px;
 }
 .menu_item_section .row {
     display: flex;
@@ -52,37 +55,25 @@ h1 {
     gap: 20px;
 }
 
-.menu_img {
-    width: 100%;
-    border-radius: 20px;
-}
-
-.drink_item_section .row {
+.drink_item_section .row,
+.dessert_item_section .row,
+.cocktail_item_section .row {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 20px;
-    gap: 200px;
-}
-.dessert_item_section .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column-reverse;
     padding-top: 20px;
     gap: 20px;
 }
 
-.drink_img {
-    width: 100%;
-    border-radius: 20px;
-}
-
+.menu_img,
+.drink_img,
 .dessert_img {
     width: 100%;
     border-radius: 20px;
 }
-
-
+.cocktail_img {
+    width: 40%;
+    border-radius: 20px;
+}
 
 /* header style */
 .logo-title:hover {

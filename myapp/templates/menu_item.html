@@ -12,18 +12,16 @@
         </span>
         <div class="row">
             <div class="column">
-                <h2>
-                    {{ menu_item.name }}
-                </h2>
-                <p>
-                    {{ menu_item.description }}
-                </p>
-                <p>
-                    Price: ${{ menu_item.price }}
-                </p>
+                <h2>{{ menu_item.name }}</h2>
+                <p>{{ menu_item.description }}</p>
+                <p>Price: ${{ menu_item.price }}</p>
             </div>
             <div class="column">
-                <img src="{% static '/img/' %}{{ menu_item.name }}.jpg" alt="{{ menu_item.name }}" class="menu_img" />
+                <img 
+                    src="{{ menu_item.url.url }}"
+                    alt="{{ menu_item.name }}" 
+                    class="menu_img" 
+                />
             </div>
         </div>
     </article>

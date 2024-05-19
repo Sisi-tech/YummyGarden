@@ -2,47 +2,72 @@
 {% load static %}
 {% block content %}  
 <section class="menu_page">
-    <h1>Menu</h1>
-    <div class="menu_column">
-        {% for item in menu %} 
-        <p class="menu_items">
-            <a href="{% url 'menu_item' pk=item.pk %}">
-                {{ item.name }}
-            </a>
-            <span>--</span>
-            <span class="menu_price">
-            ${{ item.price }}
-            </span>
-        </p>
-        {% endfor %}
-    </div>
-    <h2>Drinks</h2>
-    <div class="drinks_item">
-        {% for drink in drinks %}
-        <p class="drink_item">
-            <a href="{% url 'drink_item' pk=drink.pk %}">
-                {{ drink.title }}
-            </a>
-            <span>--</span>
-            <span class="drink_price">
-                ${{ drink.price }}
-            </span>
-        </p>
-        {% endfor %}
-    </div>
-    <h2>Dessert</h2>
-    <div class="desserts_item">
-        {% for dessert in desserts %}
-        <p class="dessert_item">
-            <a href="{% url 'dessert_item' pk=dessert.pk %}">
-                {{ dessert.title }}
-            </a>
-            <span>--</span>
-            <span class="dessert_price">
-                ${{ dessert.price }}
-            </span>
-        </p>
-        {% endfor %}
-    </div>
+    <!-- main menu -->
+    <article>
+        <h2>Menu</h2>
+        <div class="menu_column">
+            {% for item in menu %} 
+            <p class="menu_items">
+                <a href="{% url 'menu_item' pk=item.pk %}">
+                    {{ item.name }}
+                </a>
+                <span>--</span>
+                <span class="menu_price">
+                ${{ item.price }}
+                </span>
+            </p>
+            {% endfor %}
+        </div>
+    </article>  
+    <article>
+        <h2>Cocktail</h2>
+        <div class="cocktails_item">
+            {% for cocktail in cocktails %} 
+            <p class="cocktail_item">
+                <a href="{% url 'cocktail_item' pk=cocktail.pk %}">
+                    {{ cocktail.title }}
+                </a>
+                <span>--</span>
+                <span class="cocktail_price">
+                    ${{ cocktail.price }}
+                </span>
+            </p>
+            {% endfor %}
+        </div>
+    </article>
+    <!-- drinks -->
+    <article>
+        <h2>Drinks</h2>
+        <div class="drinks_item">
+            {% for drink in drinks %}
+            <p class="drink_item">
+                <a href="{% url 'drink_item' pk=drink.pk %}">
+                    {{ drink.title }}
+                </a>
+                <span>--</span>
+                <span class="drink_price">
+                    ${{ drink.price }}
+                </span>
+            </p>
+            {% endfor %}
+        </div>  
+    </article>
+    <!-- dessert -->
+    <article>
+        <h2>Dessert</h2>
+        <div class="desserts_item">
+            {% for dessert in desserts %}
+            <p class="dessert_item">
+                <a href="{% url 'dessert_item' pk=dessert.pk %}">
+                    {{ dessert.title }}
+                </a>
+                <span>--</span>
+                <span class="dessert_price">
+                    ${{ dessert.price }}
+                </span>
+            </p>
+            {% endfor %}
+        </div>
+    </article>  
 </section>
 {% endblock %}

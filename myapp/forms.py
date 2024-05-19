@@ -1,6 +1,7 @@
 from django import forms
 from .models import Booking
 from .models import Menu 
+from .models import Cocktail 
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class BookingForm(forms.ModelForm):
@@ -18,3 +19,8 @@ class MenuItems(forms.ModelForm):
     class Meta:
         model = Menu
         fields = '__all__'
+
+class CocktailForm(forms.ModelForm):
+    class Meta:
+        model = Cocktail 
+        fields = ['title', 'description', 'price', 'url']

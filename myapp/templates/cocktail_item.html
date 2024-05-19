@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load static %}  
+{% block content %} 
+<section class="cocktail_item_section">
+    <article>
+        <h1>Cocktail</h1>
+        <span>
+            <a href="{% url 'home' %}">Home</a>/
+            <a href="{% url 'menu' %}">Menu</a>/
+            {{ cocktail.title }}
+        </span>
+        <div class="row">
+            <div class="column">
+            <h2>{{ cocktail.title }}</h2>
+            <p>{{ cocktail.description }}</p>
+            <p>Price: ${{ cocktail.price }}</p>
+            </div>
+            <div class="column">
+                <img 
+                    src="{{ cocktail.url.url }}"
+                    alt="{{ cocktail.title }}"
+                    class="cocktail_img"
+                />
+            </div>
+        </div>
+    </article>
+</section>
+{% endblock %}

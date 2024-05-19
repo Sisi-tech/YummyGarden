@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Menu 
-from .models import Drinks 
+from .models import Menu, Drinks, Dessert, Cocktail
 from .forms import BookingForm
 from django.contrib import messages 
 from rest_framework.response import Response
@@ -9,7 +8,7 @@ from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from .serializers import DrinksSerializer
 from django.core.paginator import Paginator, EmptyPage
-from .models import Dessert 
+
 
 # Create your views here.
 def home(request):
@@ -39,17 +38,14 @@ def book(request):
 def menu(request):
     menu_data = Menu.objects.all()
     drinks_data = Drinks.objects.all()
+    cocktail_data = Cocktail.objects.all()
     dessert_data = Dessert.objects.all()
-    context = {"menu": menu_data, "drinks": drinks_data, "desserts": dessert_data}
+    context = {"menu": menu_data, "drinks": drinks_data, "desserts": dessert_data, "cocktails": cocktail_data}
     return render(request, "menu.html", context)
 
 def display_menu_item(request, pk=None):
-    if pk:
-        menu_item = Menu.objects.get(pk=pk)
-    else:
-        menu_item = ""
+    menu_item = get_object_or_404(Menu, pk=pk)
     return render(request, 'menu_item.html', {"menu_item": menu_item})
-
 
 def display_drink_item(request, pk=None):
     drink_item = get_object_or_404(Drinks, pk=pk)
@@ -58,6 +54,10 @@ def display_drink_item(request, pk=None):
 def display_dessert_item(request, pk=None):
     dessert_item = get_object_or_404(Dessert, pk=pk)
     return render(request, 'dessert_item.html', {'dessert': dessert_item})
+
+def display_cocktail_item(request, pk=None):
+    cocktail_item = get_object_or_404(Cocktail, pk=pk)
+    return render(request, 'cocktail_item.html', {"cocktail": cocktail_item})
 
 
 class DrinksList(APIView):

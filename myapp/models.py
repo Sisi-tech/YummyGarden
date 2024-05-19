@@ -8,10 +8,11 @@ class Category(models.Model):
         return self.category_name
 
 class Drinks(models.Model):
-    title = models.CharField(max_length=200, default='Default Title')
-    description = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, default="")
+    description = models.TextField(max_length=1000, default="")
     price = models.DecimalField(max_digits=4, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=None)
+    url = models.ImageField(upload_to='drinks')
     def __str__(self):
         return self.title 
 
@@ -20,6 +21,7 @@ class Menu(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, default="")
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False)
+    url = models.ImageField(upload_to='menu')
 
     def __str__(self):
         return self.name 
@@ -38,6 +40,17 @@ class Dessert(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, default="")
     price = models.DecimalField(max_digits=4, decimal_places=2, null=False)
+    url = models.ImageField(upload_to='dessert')
+    
     def __str__(self):
         return self.title
+    
+class Cocktail(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField(max_length=1000, default="")
+    price = models.DecimalField(max_digits=4, decimal_places=2, null=False)
+    url = models.ImageField(upload_to='cocktails')
+
+    def __str__(self):
+        return self.title 
     

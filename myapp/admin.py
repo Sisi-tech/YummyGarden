@@ -5,6 +5,7 @@ from .models import Booking
 from django.contrib.auth.admin import UserAdmin
 from .models import Menu 
 from .models import Dessert
+from .models import Cocktail
 
 # Register your models here.
 admin.site.register(Drinks)
@@ -12,6 +13,7 @@ admin.site.register(Category)
 admin.site.register(Booking)
 admin.site.register(Menu)
 admin.site.register(Dessert)
+admin.site.register(Cocktail)
 
 
 class NewAdmin(UserAdmin):

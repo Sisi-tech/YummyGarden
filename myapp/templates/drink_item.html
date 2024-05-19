@@ -17,7 +17,7 @@
             </div>
             <div class="column">
                 <img 
-                    src="{% static '/img/' %}{{ drink_item.title }}.jpg" 
+                    src="{{ drink_item.url.url }}"
                     alt="{{ drink_item.title }}" 
                     class="drink_img" 
                 />
