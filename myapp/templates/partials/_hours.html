@@ -1,10 +1,13 @@
 {% load static %} 
 
 <section class="hours-section">
-    <h2>Hours</h2>
     <div class="hours-img-schedule">
-        <img src="{% static 'img/background13.jpg' %}" alt="hour-img" class="hours-img" />
+        <!-- <img src="{% static 'img/background13.jpg' %}" alt="hour-img" class="hours-img" /> -->
+        <video autoplay loop muted playsinline style="width: 60%; padding-top: 20px;">
+            <source src="{% static 'img/video1.mp4' %}" type="video/mp4">
+        </video>
         <div class="hours">
+            <h2>Hours</h2>
             <p><span style="font-weight: bold">Sunday:</span> 11:30 AM - 11:00 PM</p>
             <p><span style="font-weight: bold">Tuesday:</span> 11:30 AM - 11:00 PM</p>
             <p><span style="font-weight: bold">Wednesday:</span> 11:30 AM - 11:00 PM</p>
