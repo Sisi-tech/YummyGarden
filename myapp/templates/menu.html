@@ -2,8 +2,16 @@
 {% load static %}
 {% block content %}  
 <section class="menu_page">
+    <div>
+        <ul class="menu_section_btn">
+            <li><a href="#main-menu" class="menu_btn">Main Menu</a></li>
+            <li><a href="#cocktail" class="menu_btn">Cocktail</a></li>
+            <li><a href="#drinks" class="menu_btn">Drinks</a></li>
+            <li><a href="#dessert" class="menu_btn">Dessert</a></li>
+        </ul>
+    </div>
     <!-- main menu -->
-    <article>
+    <article id="main-menu">
         <h2>Menu</h2>
         <div class="menu_column">
             {% for item in menu %} 
@@ -19,7 +27,8 @@
             {% endfor %}
         </div>
     </article>  
-    <article>
+    <!-- cocktail -->
+    <article id="cocktail">
         <h2>Cocktail</h2>
         <div class="cocktails_item">
             {% for cocktail in cocktails %} 
@@ -36,7 +45,7 @@
         </div>
     </article>
     <!-- drinks -->
-    <article>
+    <article id="drinks">
         <h2>Drinks</h2>
         <div class="drinks_item">
             {% for drink in drinks %}
@@ -53,7 +62,7 @@
         </div>  
     </article>
     <!-- dessert -->
-    <article>
+    <article id="dessert">
         <h2>Dessert</h2>
         <div class="desserts_item">
             {% for dessert in desserts %}
@@ -70,4 +79,16 @@
         </div>
     </article>  
 </section>
+<div class="go_back">
+    <button id="go_back_btn">Back to the top</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var goBackBtn = document.getElementById('go_back_btn');
+        goBackBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+</script>
 {% endblock %}
