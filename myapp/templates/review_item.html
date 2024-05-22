@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %} 
+<section>
+    <article>
+        <h1>Review</h1>
+        <span>
+            <a href="{% url 'home' %}">Home</a>/
+            <a href="{% url 'review' %}">Review</a>/
+            {{review.first_name}} {{review.last_name}}
+        </span>
+        <div>
+            <div>
+                <h2>Review from {{ review.first_name }} {{ review.last_name }}</h2>
+                <p>{{ review.review }}</p>
+            </div>
+            <div class="review_img">
+                <!-- <img src="{{ review_img.image.url }}" alt="{{ review.first_name }} {{ review.last_name }}" class="reveiw_img" /> -->
+            </div>
+        </div>
+    </article>
+</section>
+{% endblock %}

@@ -281,6 +281,25 @@ h1 {
     color: #3e583a;
 }
 
+/* Review */
+.reivew_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.write_review_btn {
+    font-size: 22px;
+    display: flex;
+    gap: 4px;
+    background-color: none;
+}
+.write_review_btn:hover {
+    color: #3e583a;
+    border: 2px;
+    border-color: #3e583a;
+    border: inset;
+}
+
 @media screen and (max-width: 767px) {
     .home_article {
         flex-direction: column;

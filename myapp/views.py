@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Menu, Drinks, Dessert, Cocktail
-from .forms import BookingForm
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Menu, Drinks, Dessert, Cocktail, Review, ReviewImage
+from .forms import BookingForm, ReviewForm, ReviewImageFormSet 
 from django.contrib import messages 
 from rest_framework.response import Response
 from rest_framework import status
@@ -58,6 +58,37 @@ def display_dessert_item(request, pk=None):
 def display_cocktail_item(request, pk=None):
     cocktail_item = get_object_or_404(Cocktail, pk=pk)
     return render(request, 'cocktail_item.html', {"cocktail": cocktail_item})
+
+def review(request):
+    review_data = Review.objects.all() 
+    reviewImage_data = ReviewImage.objects.all()
+    context = {"reviews": review_data, "reviewImages": reviewImage_data}
+    return render(request, 'review.html', context)
+
+def display_review_item(request, pk=None):
+    review_item = get_object_or_404(Review, pk=pk)
+    review_image = get_object_or_404(ReviewImage, pk=pk)
+    return render(request, 'review_item.html', {'review': review_item, 'review_image': review_image})
+
+def review_success(request):
+    return render(request, 'review_success.html')
+
+def submit_review(request):
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST)
+        formset = ReviewImageFormSet(request.POST, request.FILES, queryset=ReviewImage.objects.none())
+        if review_form.is_valid() and formset.is_valid():
+            review = review_form.save()
+            for form in formset.cleaned_data:
+                if form:
+                    image = form['image']
+                    photo = ReviewImage(review=review, image=image)
+                    photo.save()
+            return redirect('review_success')
+    else:
+        review_form = ReviewForm()
+        formset = ReviewImageFormSet(queryset=ReviewImage.objects.none())
+    return render(request, 'submit_review.html', {'review_form': review_form, 'formset': formset})
 
 
 class DrinksList(APIView):

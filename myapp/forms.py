@@ -1,7 +1,6 @@
 from django import forms
-from .models import Booking
-from .models import Menu 
-from .models import Cocktail 
+from django.forms import modelformset_factory
+from .models import Booking, Review, ReviewImage
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class BookingForm(forms.ModelForm):
@@ -15,12 +14,14 @@ class BookingForm(forms.ModelForm):
             'guest_count': [MinValueValidator(1), MaxValueValidator(12)],
         }
 
-class MenuItems(forms.ModelForm):
+class ReviewForm(forms.ModelForm):
     class Meta:
-        model = Menu
-        fields = '__all__'
+        model = Review 
+        fields = ["first_name", "last_name", "review"]
 
-class CocktailForm(forms.ModelForm):
+class ReviewImageForm(forms.ModelForm):
     class Meta:
-        model = Cocktail 
-        fields = ['title', 'description', 'price', 'url']
+        model = ReviewImage
+        fields = ["image"]
+
+ReviewImageFormSet = modelformset_factory(ReviewImage, form=ReviewImageForm, extra=4)

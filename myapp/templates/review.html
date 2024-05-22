@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %} 
+<section>
+    <div class="review_menu">
+        <h2>Reviews</h2>
+        <a href="{% url 'submit_review' %}">
+            <button class="write_review_btn"><span class="review_emoji">&#128221;</span>Write a review</button>
+        </a>
+    </div>
+    <article>
+        <div class="review_column">
+            {% for review in reviews %} 
+            <p>
+                <span style="font-size: 36px; background-color: rgb(229, 238, 229, 0.4); padding: 6px; border-radius: 50%;">&#128100;</span>
+                <a href="{% url 'review_item' pk=review.pk %}">
+                    {{ review.first_name }} {{ review.last_name }}
+                </a>
+            </p>
+            <p>{{ review.review }}</p>
+            <div>
+                <img href="" />
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+</section>
+{% endblock %}

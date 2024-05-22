@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="review_success_section">
+    <span>
+        <a href="{% url 'home' %}">Home</a>/
+        <a href="{% url 'review' %}">Menu</a>
+    </span>
+    <h1>Review Submitted Successfully!</h1>
+    <p>Thank you for your review.</p>
+    <a href="{% url 'review' %}">
+        <button class="back_to_reveiw_btn">Go back</button>
+    </a>
+</section>
+{% endblock %}

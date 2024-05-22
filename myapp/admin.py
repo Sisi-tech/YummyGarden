@@ -1,11 +1,7 @@
 from django.contrib import admin
-from .models import Drinks
-from .models import Category
-from .models import Booking 
+from .models import Drinks, Category, Booking, Menu, Dessert, Cocktail, Review, ReviewImage 
 from django.contrib.auth.admin import UserAdmin
-from .models import Menu 
-from .models import Dessert
-from .models import Cocktail
+
 
 # Register your models here.
 admin.site.register(Drinks)
@@ -14,6 +10,8 @@ admin.site.register(Booking)
 admin.site.register(Menu)
 admin.site.register(Dessert)
 admin.site.register(Cocktail)
+admin.site.register(Review)
+admin.site.register(ReviewImage)
 
 
 class NewAdmin(UserAdmin):
