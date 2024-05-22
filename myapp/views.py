@@ -60,15 +60,15 @@ def display_cocktail_item(request, pk=None):
     return render(request, 'cocktail_item.html', {"cocktail": cocktail_item})
 
 def review(request):
-    review_data = Review.objects.all() 
-    reviewImage_data = ReviewImage.objects.all()
-    context = {"reviews": review_data, "reviewImages": reviewImage_data}
+    reviews = Review.objects.all() 
+    # reviewImage_data = ReviewImage.objects.all(review=review_data)
+    context = {"reviews": reviews}
     return render(request, 'review.html', context)
 
 def display_review_item(request, pk=None):
     review_item = get_object_or_404(Review, pk=pk)
-    review_image = get_object_or_404(ReviewImage, pk=pk)
-    return render(request, 'review_item.html', {'review': review_item, 'review_image': review_image})
+    review_images = ReviewImage.objects.filter(review=review_item)
+    return render(request, 'review_item.html', {'review': review_item, 'review_images': review_images})
 
 def review_success(request):
     return render(request, 'review_success.html')

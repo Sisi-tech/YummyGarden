@@ -18,8 +18,10 @@
                 </a>
             </p>
             <p>{{ review.review }}</p>
-            <div>
-                <img href="" />
+            <div class="review_images">
+                {% for image in review.images.all %}
+                <img src="{{ image.image.url }}" alt="Image for {{ review.first_name }} {{ review.last_name }}" class="review_img" />
+                {% endfor %}
             </div>
             {% endfor %}
         </div>

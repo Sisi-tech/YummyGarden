@@ -299,6 +299,16 @@ h1 {
     border-color: #3e583a;
     border: inset;
 }
+.review_images {
+    display: flex;
+    flex-direction: row;
+}
+.review_img {
+    width: 30%;
+}
+.review_item_img {
+    width: 40%;
+}
 
 @media screen and (max-width: 767px) {
     .home_article {

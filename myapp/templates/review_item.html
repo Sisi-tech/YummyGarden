@@ -14,8 +14,10 @@
                 <h2>Review from {{ review.first_name }} {{ review.last_name }}</h2>
                 <p>{{ review.review }}</p>
             </div>
-            <div class="review_img">
-                <!-- <img src="{{ review_img.image.url }}" alt="{{ review.first_name }} {{ review.last_name }}" class="reveiw_img" /> -->
+            <div class="review_images">
+                {% for image in review_images %} 
+                <img src="{{ image.image.url }}" alt="Image for {{ review.first_name }} {{ review.last_name }}" class="review_item_img" />
+                {% endfor %}
             </div>
         </div>
     </article>
