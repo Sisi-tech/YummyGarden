@@ -282,16 +282,19 @@ h1 {
 }
 
 /* Review */
-.reivew_menu {
+.review_menu {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
+}
+.review_tn_link {
+    text-decoration: none;
 }
 .write_review_btn {
     font-size: 22px;
     display: flex;
     gap: 4px;
-    background-color: none;
+    align-items: center;
+    
 }
 .write_review_btn:hover {
     color: #3e583a;
@@ -302,7 +305,10 @@ h1 {
 .review_images {
     display: flex;
     flex-direction: row;
+    gap: 5px;
+    border-radius: 8px;
 }
+
 .review_img {
     width: 30%;
 }
@@ -367,5 +373,9 @@ h1 {
     .book-form {
         display: flex;
         flex-direction: column;
+    }
+    .review_images {
+        display: grid;
+        grid-template-columns: repeat(2, 1rf);
     }
 }

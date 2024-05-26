@@ -58,13 +58,15 @@ class Review(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     review = models.TextField(max_length=1000)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-    
+
 class ReviewImage(models.Model):
     review = models.ForeignKey(Review, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="reviews")
+    image = models.ImageField(upload_to='reviews')
 
     def __str__(self):
         return f"Image for review by {self.review.first_name} {self.review.last_name}"
+

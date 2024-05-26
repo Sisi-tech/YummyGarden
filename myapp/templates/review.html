@@ -1,30 +1,69 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block content %} 
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
 <section>
+    <h2>Reviews</h2>
     <div class="review_menu">
-        <h2>Reviews</h2>
-        <a href="{% url 'submit_review' %}">
+        <a href="{% url 'submit_review' %}" class="review_btn_link">
             <button class="write_review_btn"><span class="review_emoji">&#128221;</span>Write a review</button>
         </a>
     </div>
     <article>
         <div class="review_column">
-            {% for review in reviews %} 
-            <p>
-                <span style="font-size: 36px; background-color: rgb(229, 238, 229, 0.4); padding: 6px; border-radius: 50%;">&#128100;</span>
-                <a href="{% url 'review_item' pk=review.pk %}">
-                    {{ review.first_name }} {{ review.last_name }}
-                </a>
-            </p>
-            <p>{{ review.review }}</p>
-            <div class="review_images">
-                {% for image in review.images.all %}
-                <img src="{{ image.image.url }}" alt="Image for {{ review.first_name }} {{ review.last_name }}" class="review_img" />
-                {% endfor %}
+            {% for review in reviews %}
+            <div class="review_item">
+                <p>
+                    <span style="font-size: 36px; background-color: rgba(229, 238, 229, 0.4); padding: 6px; border-radius: 50%;">
+                        &#128100;
+                    </span>
+                    <a href="{% url 'review_item' pk=review.pk %}">
+                        {{ review.first_name }} {{ review.last_name }}
+                    </a>
+                </p>
+                <p>{{ review.created_at|time_since }}</p> <!-- Display how long ago the review was posted -->
+                <p>{{ review.review }}</p>
+                <div class="review_images" style="display: flex; height: 120px; gap: 5px;">
+                    {% for image in review.images.all %}
+                    <img 
+                        src="{{ image.image.url }}" 
+                        alt="Image for {{ review.first_name }} {{ review.last_name }}" 
+                        class="review_img" 
+                        style="border-radius: 8px;"
+                    />
+                    {% endfor %}
+                </div>
             </div>
             {% endfor %}
         </div>
+        <div class="vote" style="display: flex; align-items: center; gap: 8px;">
+            <button id="vote_btn"><span>&#9825;</span></button>
+            <label id="display_votes"></label>
+        </div>
     </article>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var vote_btn = document.getElementById("vote_btn");
+        var display_votes = document.getElementById("display_votes");
+
+        var stored_votes = localStorage.getItem('vote_count');
+        if (stored_votes) {
+            display_votes.innerText = stored_votes;
+        } else {
+            display_votes.innerText = 0;
+        }
+
+        vote_btn.addEventListener('click', function() {
+            var current_votes = parseInt(display_votes.innerText, 10);
+            if (isNaN(current_votes)) {
+                display_votes.innerText = 0;
+            } 
+            current_votes += 1;
+            display_votes.innerText = current_votes;
+            localStorage.setItem('vote_count', current_votes);
+        });
+    });
+</script>
 {% endblock %}
