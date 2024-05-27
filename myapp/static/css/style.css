@@ -282,6 +282,17 @@ h1 {
 }
 
 /* Review */
+.review-section {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.review_column {
+    display: flex;
+    box-shadow: 2px 2px 2px 2px rgb(204, 203, 203);
+    padding: 20px;
+}
 .review_menu {
     display: flex;
 
@@ -315,6 +326,15 @@ h1 {
 .review_item_img {
     width: 40%;
 }
+#vote_btn {
+    background-color: white;
+    border: none;
+    font-size: 24px;
+}
+#vote_btn:hover {
+    color: red;
+}
+
 
 @media screen and (max-width: 767px) {
     .home_article {

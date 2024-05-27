@@ -2,15 +2,15 @@
 {% load static %}
 {% load custom_filters %}
 {% block content %}
-<section>
+<section class="review-section">
     <h2>Reviews</h2>
     <div class="review_menu">
         <a href="{% url 'submit_review' %}" class="review_btn_link">
             <button class="write_review_btn"><span class="review_emoji">&#128221;</span>Write a review</button>
         </a>
     </div>
-    <article>
-        <div class="review_column">
+    <article >
+        <div class="review_column" >
             {% for review in reviews %}
             <div class="review_item">
                 <p>
@@ -35,10 +35,12 @@
                 </div>
             </div>
             {% endfor %}
-        </div>
-        <div class="vote" style="display: flex; align-items: center; gap: 8px;">
-            <button id="vote_btn"><span>&#9825;</span></button>
-            <label id="display_votes"></label>
+            <div class="vote" style="display: flex; align-items: center; gap: 8px;">
+                <button id="vote_btn" >
+                    <span>&#9825;</span>
+                </button>
+                <label id="display_votes"></label>
+            </div>
         </div>
     </article>
 </section>
@@ -51,19 +53,28 @@
         var stored_votes = localStorage.getItem('vote_count');
         if (stored_votes) {
             display_votes.innerText = stored_votes;
+            vote_btn.disabled = true;
         } else {
             display_votes.innerText = 0;
         }
 
+        var isClicked = localStorage.getItem('isClicked') === 'true'; // Convert string to boolean
+        console.log("isClicked:", isClicked);
+
         vote_btn.addEventListener('click', function() {
-            var current_votes = parseInt(display_votes.innerText, 10);
-            if (isNaN(current_votes)) {
-                display_votes.innerText = 0;
-            } 
-            current_votes += 1;
-            display_votes.innerText = current_votes;
-            localStorage.setItem('vote_count', current_votes);
+            if (isClicked) {
+                console.log("Alert: You liked already");
+                window.alert("You liked already");
+            } else {
+                var current_votes = parseInt(display_votes.innerText, 10);
+                current_votes += 1;
+                display_votes.innerText = current_votes;
+                localStorage.setItem('vote_count', current_votes);
+                localStorage.setItem('isClicked', true);
+                vote_btn.disabled = true;
+            }
         });
     });
 </script>
+
 {% endblock %}
