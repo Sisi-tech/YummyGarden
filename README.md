@@ -1,6 +1,16 @@
 ## Project Name: Yummy Garden
 ## Django
 
+## Video walk through
+<div>
+    <a href="https://www.loom.com/share/25226b2614b74d2fab90c2f9c9ec496b">
+      <p>Yummy Garden - 3 June 2024 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/25226b2614b74d2fab90c2f9c9ec496b">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/25226b2614b74d2fab90c2f9c9ec496b-with-play.gif">
+    </a>
+</div>
+
 ## env
 **source venv/bin/activate**
 
