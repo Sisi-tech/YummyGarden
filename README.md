@@ -1,5 +1,6 @@
 ## Project Name: Yummy Garden
 ## Django
+<p>This restaurant website provides comprehensive information about the restaurant, including detailed menus. Customers can browse the menus online, make reservations directly through the website, and post reviews. The site is fully responsive, ensuring an optimal experience on both desktop and mobile devices.</p>
 
 ## Video walk through
 <div>
